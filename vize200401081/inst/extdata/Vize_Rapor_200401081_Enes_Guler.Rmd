@@ -1,0 +1,8 @@
+---
+title: "Vize_Rapor_200401081_Enes_Guler"
+author: "Enes"
+date: "2024-04-24"
+output: html_document
+---
+
+## Q1 Q1 İş, problem ve ihtiyaç tanımı
