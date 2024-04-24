@@ -23,3 +23,25 @@ Bu analizde, Bitcoin fiyat verileri üzerinde Fibonacci analizi yapılacaktır. 
 
 Çözüm Önerisi - Planlanan Analiz Sonuçları:
 Planlanan analiz sonuçları, müşterinin yatırım kararlarını desteklemek için önemli bilgiler sağlayacak. Fibonacci analizi sonuçları, müşterilere Bitcoin fiyatlarının olası destek ve direnç seviyelerini gösterecek ve bu da yatırım kararlarını etkileyecektir.
+
+## Q2: Veri ithali
+
+```{r}
+
+library("RSQLite")
+library("DBI")
+library("readr")
+library("dplyr")
+
+# Veritabanı dosyasının adı
+db_path <- "Vize_Q2_200401081_Enes_Guler.sqlite"  
+# CSV dosyasının yolu
+csv_file <- "BTC-USD.csv"  
+# SQLite'daki tablo ismi
+table_name <- "veri_tablosu"  
+
+# CSV dosyasını SQLite veritabanına aktar
+vize200401081::import_csv_to_sqlite(db_path, csv_file, table_name)
+
+
+```
