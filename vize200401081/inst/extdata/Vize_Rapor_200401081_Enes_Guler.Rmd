@@ -52,6 +52,10 @@ Eksik veriler var ise bu verileri bir önceki gün ile bir sonraki günün ortal
 
 ```{r}
 vize200401081::fetch_and_fill_na(db_path, table_name)
+
+#Verimizi test etmek için;
+devtools::test()
 ```
+
 
 
