@@ -34,7 +34,7 @@ library("readr")
 library("dplyr")
 
 # Veritabanı dosyasının adı
-db_path <- "Vize_Q2_200401081_Enes_Guler.sqlite"  
+db_path <- "Vize_Q2_200401081_Guler_Enes.sqlite"  
 # CSV dosyasının yolu
 csv_file <- "BTC-USD.csv"  
 # SQLite'daki tablo ismi
@@ -45,3 +45,13 @@ vize200401081::import_csv_to_sqlite(db_path, csv_file, table_name)
 
 
 ```
+
+## Q3 : Veri Kalite Kontrolü
+
+Eksik veriler var ise bu verileri bir önceki gün ile bir sonraki günün ortalamasını alarak boş alana yazar.
+
+```{r}
+vize200401081::fetch_and_fill_na(db_path, table_name)
+```
+
+
