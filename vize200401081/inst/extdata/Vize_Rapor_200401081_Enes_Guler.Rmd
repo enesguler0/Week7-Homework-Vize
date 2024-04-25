@@ -69,4 +69,8 @@ print(plot_data)
 ```
 Oluşturulan grafikte görüldüğü üzere verilen tarih alanındaki fiyatlar üzerinden fibonacci grafiğini oluşturduk. Fionacci seviyelerinin tam olarak net anlaşılması için fibonacci noktalarının net fiyatları girildi. Kullanıcılar bu verilen fibonacci noktaları üzerinden destek ve direnç bölgelerini belirleyebilir.
 
+## Q5 : Sonuçlar ve değerlendirmeler
+
+Elde etmek istediğim sonuçlara ulaştım, ancak grafik daha detaylı hale getirilebilir ve de bir çok farklı analiz sonucu eklenebilir. Grafik olarak mum yapısı kullanılması daha sağlıklı olacaktır. Finans bilgisi iyi olan birisiyle görüşülüp daha farklı analiz yöntemleriyle daha uygun değerlendirmeler yapılabilir.
+
 
