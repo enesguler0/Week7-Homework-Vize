@@ -3,3 +3,4 @@
 export(connect_to_database)
 export(fetch_and_fill_na)
 export(import_csv_to_sqlite)
+export(process_data_and_plot)

@@ -58,4 +58,15 @@ devtools::test()
 ```
 
 
+## Q4 : Veri analizi
+
+```{r}
+library(ggplot2)
+
+plot_data <- vize200401081::process_data_and_plot(db_path, table_name, "2024-03-01", "2024-04-01")
+print(plot_data)
+
+```
+Oluşturulan grafikte görüldüğü üzere verilen tarih alanındaki fiyatlar üzerinden fibonacci grafiğini oluşturduk. Fionacci seviyelerinin tam olarak net anlaşılması için fibonacci noktalarının net fiyatları girildi. Kullanıcılar bu verilen fibonacci noktaları üzerinden destek ve direnç bölgelerini belirleyebilir.
+
 

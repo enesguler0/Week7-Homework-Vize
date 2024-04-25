@@ -54,3 +54,41 @@ fetch_and_fill_na <- function(db_path, table_name) {
   DBI::dbDisconnect(con)
   return(data)
 }
+
+#' @param db_path SQLite veritabanı dosyasının yolu.
+#' @param table_name Çekilecek veritabanı tablosunun adı.
+#' @return .
+#' @export
+# Veri işleme ve grafik oluşturma fonksiyonu
+process_data_and_plot <- function(db_path, table_name, start_date, end_date) {
+  # SQLite veritabanına bağlan
+  con <- dbConnect(SQLite(), dbname = db_path)
+
+  # Veriyi belirtilen tarih aralığına göre filtrele
+  query <- sprintf("SELECT * FROM %s WHERE Date BETWEEN '%s' AND '%s'", table_name, start_date, end_date)
+  data <- dbGetQuery(con, query)
+
+  # Fibonacci seviyelerini hesapla
+  low_price <- min(data$Low)
+  high_price <- max(data$High)
+  price_range <- high_price - low_price
+  fibonacci_levels <- c(0, 0.236, 0.382, 0.5, 0.618, 0.786, 1)
+  fibonacci_prices <- low_price + fibonacci_levels * price_range
+
+  # Grafik oluştur
+  plot_data <- ggplot(data, aes(x = as.Date(Date), y = Close)) +
+    geom_line() +
+    xlab("Tarih") +
+    ylab("BTC/USD Fiyatı") +
+    ggtitle("BTC/USD Fiyatı ve Fibonacci Seviyeleri") +
+    ylim(min(data$Low), max(data$High)) +
+    geom_hline(yintercept = fibonacci_prices, col = "blue", linetype = "dashed") +
+    geom_text(data = data.frame(x = as.Date(data$Date[length(data$Date)]), y = fibonacci_prices),
+              aes(x, y, label = paste(" ", round(y, 2))), vjust = -0.5, col = "blue") +
+    theme_minimal()
+
+  # Veritabanı bağlantısını kapat
+  dbDisconnect(con)
+
+  return(plot_data)
+}
